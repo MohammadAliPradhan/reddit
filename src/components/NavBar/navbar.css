@@ -1,0 +1,28 @@
+.middle-ol {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+.middle {
+    display: flex;
+    flex-direction: column;
+}
+
+.mainlogo {
+    width: 94px;
+}
+
+.left {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1px;
+}
+
+.navbar-a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 216px;
+}
