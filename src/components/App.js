@@ -8,15 +8,21 @@ import SignUp from "./Authentication/SignUp";
 import Login from "./Authentication/Login/Login";
 import FlightSingle from "./Home/FlightSingle/FlightSingle";
 import CheckOutPageF from "./Home/CheckOutPageF/CheckOutPageF";
+import HotelSearchPage from "./Hotel/HotelSearchPage/HotelSearchPage";
+import HotelSinglePage from "./Hotel/HotelSingle/HotelSinglePage";
 
 
 export const LoginButtonContext = createContext();  //login
 export const ButtonContext = createContext();  //singup
 export const AuthContext = createContext();   //is logged in or not logged in
 export const paymentModalState = createContext();
+export const ApiDetails = createContext();
+
 function App() {
   const [loginButton, setLoginButton] = useState();   //undefined
   const [buttonState, setButtonState] = useState();   //undefined
+  const [ApiInfo, setApiInfo] = useState([])
+
 
   //Payment Modal State
 
@@ -46,18 +52,27 @@ function App() {
       <LoginButtonContext.Provider value={{ loginButton, setLoginButton }}>
         <AuthContext.Provider value={{ isLoggedin, setIsLoggedIn }}>
           <paymentModalState.Provider value={{ pmodal, setPmodal }}>
-            <Navbar />
-            <Routes>
-              <Route path="/" element={<Home />} />
+            <ApiDetails.Provider value={{ ApiInfo, setApiInfo }}>
+
+              <Routes>
+                <Route element={<Navbar />}>
+                  <Route path="/" element={<Home />} />
+                  <Route path="/hotel" element={<HotelSearchPage />} />
+                  {/* <Route path="/bus" element={<Home />} />
+                  <Route path="/train" element={<Home />} /> */}
+                </Route>
+                {/* creating sub routes with id purpose */}
+
+                <Route path="flightSingle/:flightId" element={<FlightSingle />} />
+                <Route path="checkoutpagef" element={<CheckOutPageF />} />
 
 
-              {/* creating sub routes with id purpose */}
-
-              <Route path="flightSingle/:flightId" element={<FlightSingle />} />
-              <Route path="checkoutpagef" element={<CheckOutPageF />} />
-            </Routes>
-            <SignUp />
-            <Login />
+                {/* creating individual pages */}
+                <Route path="hotelallpages" element={<HotelSinglePage/>}></Route>
+              </Routes>
+              <SignUp />
+              <Login />
+            </ApiDetails.Provider>
           </paymentModalState.Provider >
         </AuthContext.Provider>
       </LoginButtonContext.Provider>

@@ -9,6 +9,7 @@ import FlightInfo from './FLighInfo/FlightInfo'
 import { getHeaderWithProjectId } from '../utils/getHeaderwithProjectId'
 import axios from 'axios'
 
+
 function FlightDetails() {
     const initialDate = new Date('Wed Nov 15 2023 00:00:00 GMT+0530');
     const [TravelDate, setTravelDate] = useState(initialDate);
@@ -217,7 +218,6 @@ function FlightDetails() {
             ))}
             <div className='footerfix'><Footer /></div>
 
-            <Outlet />
             <Footer />
 
         </>
