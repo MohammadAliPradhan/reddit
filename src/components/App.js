@@ -10,6 +10,7 @@ import FlightSingle from "./Home/FlightSingle/FlightSingle";
 import CheckOutPageF from "./Home/CheckOutPageF/CheckOutPageF";
 import HotelSearchPage from "./Hotel/HotelSearchPage/HotelSearchPage";
 import HotelSinglePage from "./Hotel/HotelSingle/HotelSinglePage";
+import HotelSingleProduct from "./Hotel/HotelSingleProduct/HotelSingleProduct";
 
 
 export const LoginButtonContext = createContext();  //login
@@ -61,14 +62,15 @@ function App() {
                   {/* <Route path="/bus" element={<Home />} />
                   <Route path="/train" element={<Home />} /> */}
                 </Route>
-                {/* creating sub routes with id purpose */}
 
+                {/* creating sub routes with id purpose kind of navigating with singleid*/}
                 <Route path="flightSingle/:flightId" element={<FlightSingle />} />
+                <Route path="hotelallpages/:hotelId" element={<HotelSingleProduct />} />
                 <Route path="checkoutpagef" element={<CheckOutPageF />} />
 
 
                 {/* creating individual pages */}
-                <Route path="hotelallpages" element={<HotelSinglePage/>}></Route>
+                <Route path="hotelallpages" element={<HotelSinglePage />}></Route>
               </Routes>
               <SignUp />
               <Login />

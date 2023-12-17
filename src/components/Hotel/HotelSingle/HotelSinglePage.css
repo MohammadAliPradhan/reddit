@@ -109,6 +109,19 @@
     cursor: pointer;
 }
 
+.ParentContainerforwidth {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+
+.parentContainerForMaxwidthchild {
+    width: 900px;
+    display: flex;
+    flex-direction: column;
+}
+
 @media only screen and (max-width: 600px) {
     .searchItem {
         border: 1px solid lightgray;
